@@ -37,7 +37,7 @@ export default function ChatWindow(){
         };
         try {
             const response = await fetch(
-                "http://localhost:3000/api/chat", 
+                "https://buddygpt-backend.onrender.com/api/chat", 
                 options
             );
             const res = await response.json();

@@ -27,7 +27,7 @@ const {
 
 const getAllThreads = async () => {
     try {
-        const response = await fetch("http://localhost:3000/api/thread");
+        const response = await fetch("https://buddygpt-backend.onrender.com/api/thread");
          const res = await response.json();
          const filteredThreads = res.filter(thread => thread.threadId && thread.title);
         //threadid, title
@@ -60,7 +60,7 @@ const handleThreadClick = async (newThreadId) => {
       // Fetch the chats for the selected thread from the backend
 
       try {
-         const response = await fetch(`http://localhost:3000/api/thread/${newThreadId}`);
+         const response = await fetch(`https://buddygpt-backend.onrender.com/api/thread/${newThreadId}`);
          const messages = await response.json();
          console.log("Fetched messages for thread:", messages);
          const chats = [];
@@ -85,7 +85,7 @@ const handleThreadClick = async (newThreadId) => {
 const handleDeleteThread = async (threadId) => {
     try {
         const response = await fetch(
-            `http://localhost:3000/api/thread/${threadId}`, 
+            `https://buddygpt-backend.onrender.com/api/thread/${threadId}`, 
             {
             method: "DELETE",
             });
