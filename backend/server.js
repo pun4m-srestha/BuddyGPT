@@ -7,11 +7,11 @@ import chatRoutes from "./routes/chat.js";
 import Thread from "./models/thread.js";
 
 dotenv.config();
-
-console.log(process.env.MONGODB_URI);
+console.log("MONGODB_URI loaded:", !!process.env.MONGODB_URI);
+//console.log(process.env.MONGODB_URI);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -83,7 +83,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on ${PORT}`)
   connectDB();
 });
